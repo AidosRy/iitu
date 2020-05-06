@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorator="layouts/main.html">
+
+<div layout:fragment="title"><h2 th:text="#{reg}"></h2></div>
+<div layout:fragment="myContent">
+
+    <form th:action="@{'/register'}" method="post" id="search-form">
+        <div class="mt-10">
+            <input th:placeholder="#{email}" type="email" name="user_email" id="username" required
+                   pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" onfocus="this.placeholder = ''"
+                   onblur="this.placeholder = 'Email address'"
+                   class="single-input inp">
+        </div>
+        <div class="mt-10">
+            <input th:placeholder="#{name}" type="text" name="full_name" required
+                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'"
+                   class="single-input inp">
+        </div>
+        <div class="mt-10">
+            <input th:placeholder="#{pass}" type="password" name="user_password" minlength="1" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required
+                   class="single-input inp">
+        </div>
+        <button id="bth-search" type="submit" class="genric-btn primary mt-20" th:text="#{reg}"></button>
+    </form>
+</div>
+
+</html>

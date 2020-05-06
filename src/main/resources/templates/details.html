@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorator="layouts/main.html">
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        .fa-heart-o {
+            color: red;
+            cursor: pointer;
+        }
+
+        .fa-heart {
+            color: red;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 0;
+            border: none;
+            background: none;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/54936aca50.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div layout:fragment="title">
+    <h2 th:text="${item.title}"></h2>
+</div>
+<div layout:fragment="myContent">
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+                <a th:text="${item.content}"></a>
+            </div>
+            <div>
+                Posted by <a th:text="${item.author.fullName}"></a> at <a
+                    th:text="${#dates.format(item.postDate, 'yyyy-MM-dd HH:mm:ss')}"></a>
+            </div>
+            <div>
+                <a style="color: red" th:text="${#sets.size(item.likes)}"></a>
+                <form style="display: inline-block" th:if="${#sets.contains(item.likes, user)}"
+                      th:action="@{'/unlikePost'+${item.id}}" method="post">
+                    <button id="heart"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                </form>
+
+                <form style="display: inline-block" th:unless="${#sets.contains(item.likes, user)}"
+                      th:action="@{'/likePost'+${item.id}}" method="post">
+                    <button id="heart"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                </form>
+            </div>
+            <div class="form-inline">
+                <form th:action="@{'/deletePost'+${item.id}}" sec:authorize="hasRole('ROLE_MODERATOR')" method="post">
+                    <button class="genric-btn danger">DELETE</button>
+                </form>
+                <form th:action="@{'/deletePost'+${item.id}}" sec:authorize="hasRole('ROLE_MODERATOR')" method="post">
+                    <button class="genric-btn warning">EDIT</button>
+                </form>
+            </div>
+            <hr>
+            <p th:text="#{comments}">COMMENTS</p>
+            <hr>
+            <form th:action="@{'/addComment'+${item.id}}" method="post" class="form" sec:authorize="isAuthenticated()">
+                <div class="form-group">
+                    <input type="text" name="comment" class="form-control" required>
+                </div>
+                <button class="genric-btn primary" th:text="#{add}"></button>
+            </form>
+            <hr>
+            <ul th:each="com : ${comments}">
+                <li>
+                    <div>
+                        <a th:text="${com.comment}"></a>
+                    </div>
+                    <div>
+                        By <a th:text="${com.author.fullName}"></a> at <a
+                            th:text="${#dates.format(com.postDate, 'yyyy-MM-dd HH:mm:ss')}"></a>
+                    </div>
+                    <a style="color:red" th:text="${#sets.size(com.likes)}"></a>
+                    <form style="display: inline-block" th:if="${#sets.contains(com.likes, user)}"
+                          th:action="@{'/unlikeCom'+${com.id}}" method="post">
+                        <button id="heart1"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        <input type="hidden" name="post_id" th:value="${item.id}">
+                    </form>
+                    <form style="display: inline-block" th:unless="${#sets.contains(com.likes, user)}"
+                          th:action="@{'/likeCom'+${com.id}}" method="post">
+                        <button id="heart1"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                        <input type="hidden" name="post_id" th:value="${item.id}">
+                    </form>
+                    <form sec:authorize="hasAnyRole('ROLE_MODERATOR')" method="post"
+                          th:action="@{'/deleteCom'+${com.id}}">
+                        <button class="genric-btn danger">DELETE</button>
+                        <input type="hidden" th:value="${item.id}" name="post_id">
+                    </form>
+                </li>
+                <hr>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#heart").click(function () {
+            if ($("#heart").hasClass("liked")) {
+                $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+                $("#heart").removeClass("liked");
+            } else {
+                $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+                $("#heart").addClass("liked");
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $("#heart1").click(function () {
+            if ($("#heart1").hasClass("liked")) {
+                $("#heart1").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+                $("#heart1").removeClass("liked");
+            } else {
+                $("#heart1").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+                $("#heart1").addClass("liked");
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $("#heart2").click(function () {
+            if ($("#heart2").hasClass("liked")) {
+                $("#heart2").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+                $("#heart2").removeClass("liked");
+            } else {
+                $("#heart2").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+                $("#heart2  ").addClass("liked");
+            }
+        });
+    });
+</script>
+</body>
+</html>

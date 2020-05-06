@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorator="layouts/main.html">
+
+<div layout:fragment="myContent">
+    <div class="row">
+        <div class="col-sm-12">
+            <form th:action="@{'/updateUser'+${item.id}}" method="post">
+                <div>
+                    <a th:text="#{name}"></a>: <a th:text="${item.fullName}"></a>
+                </div>
+                <div>
+                    <a th:text="#{email}"></a>: <a th:text="${item.email}"></a>
+                </div>
+                <a th:text="#{status}"></a>:
+                <div class="primary-switch" style="display: inline-block">
+                    <input type="checkbox" id="default-switch" name="active" th:checked="${item.isActive}">
+                    <label for="default-switch"></label>
+                </div>
+                <div>
+                <button class="btn btn-success" th:text="#{save}">SAVE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</html>

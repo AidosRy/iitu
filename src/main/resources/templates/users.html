@@ -1,0 +1,116 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorator="layouts/main.html">
+<div layout:fragment="title"><h2 th:text="#{users}"></h2></div>
+<div layout:fragment="myContent">
+    <script>
+        $('input[type="checkbox"]').on('change', function () {
+            $(this).siblings('input[type="checkbox"]').prop('checked', false);
+        });
+    </script>
+    <div class="row" sec:authorize="hasAnyRole('ROLE_ADMIN')">
+        <div class="col-sm-12">
+            <table cellpadding="20" class="table table-stripped">
+                <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th th:text="#{email}">
+                    </th>
+                    <th th:text="#{name}">
+                    </th>
+                    <th th:text="#{status}">
+                    </th>
+                    <th>
+                        ROLES
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="usr : ${userList}">
+                    <td th:text="${usr.id}"></td>
+                    <td th:text="${usr.email}"></td>
+                    <td th:text="${usr.fullName}"></td>
+                    <td th:if="${usr.isActive == true}" th:text="#{active}"></td>
+                    <td th:unless="${usr.isActive == true}" th:text="#{not_active}"></td>
+                    <td th:each="role : ${usr.roles}" th:if="${role.role == 'ROLE_MODERATOR'}"><a th:text="#{moder}"></a></td>
+                    <td th:each="role : ${usr.roles}" th:if="${role.role == 'ROLE_USER'}"><a th:text="#{user}"></a></td>
+                    <td>
+                        <a th:href="@{'/user'+${usr.id}}" th:text="#{details}" style="color:black;"></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row" sec:authorize="hasAnyRole('ROLE_MODERATOR')">
+        <div class="col-sm-12">
+            <table cellpadding="20" class="table table-stripped">
+                <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th th:text="#{email}">
+                    </th>
+                    <th th:text="#{name}">
+                    </th>
+                    <th th:text="#{status}">
+                    </th>
+                    <th>
+                        ROLES
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="usr : ${moders}">
+                    <td th:text="${usr.id}"></td>
+                    <td th:text="${usr.email}"></td>
+                    <td th:text="${usr.fullName}"></td>
+                    <td th:text="${usr.isActive}"></td>
+                    <td th:each="role : ${usr.roles}" th:text="${role.role}"></td>
+                    <td>
+                        <a th:href="@{'/user'+${usr.id}}" th:text="#{details}" style="color:black;">DETAILS</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+    <h2 class="mt-50" th:text="#{add_user}"></h2>
+    <form th:action="@{'/addUser'}" method="post">
+        <div class="mt-10">
+            <input th:placeholder="#{email}" type="email" name="email" id="username" required
+                   pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" onfocus="this.placeholder = ''"
+                   onblur="this.placeholder = 'Email address'"
+                   class="single-input">
+        </div>
+        <div class="mt-10">
+            <input th:placeholder="#{name}" type="text" name="name" required
+                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'"
+                   class="single-input">
+        </div>
+        <div class="mt-10">
+            <input th:placeholder="#{pass}" type="password" name="pass" minlength="1"
+                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required
+                   class="single-input">
+        </div>
+        <a th:text="#{moder}"></a>
+        <div class="primary-switch" style="display: inline-block">
+            <input type="checkbox" id="default-switch" name="moder">
+            <label for="default-switch"></label>
+        </div>
+        <div class="mt-20">
+            <button class="genric-btn success" th:text="#{add}"></button>
+        </div>
+    </form>
+    </div>
+</div>
+</html>
