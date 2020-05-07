@@ -5,6 +5,7 @@ import kz.iitu.csse.group34.repositories.CommentsRepository;
 import kz.iitu.csse.group34.repositories.NewsPostRepository;
 import kz.iitu.csse.group34.repositories.RolesRepository;
 import kz.iitu.csse.group34.repositories.UserRepository;
+import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -58,9 +59,26 @@ public class MainController {
     @PostMapping("/deletePost{id}")
     public String deletepost(@PathVariable Long id){
         newsPostRepository.delete(newsPostRepository.findById(id).orElse(null));
-        return "redirect:/";
+        return "redirect:/feed";
     }
 
+    @GetMapping("/edit{id}")
+    public String edit(ModelMap map, @PathVariable Long id) {
+        NewsPost item = newsPostRepository.findById(id).orElse(null);
+        map.addAttribute("item", item);
+        return "edit";
+    }
+
+    @PostMapping("/edit")
+    public String editt(@RequestParam String shortContent, @RequestParam String content, @RequestParam String title, @RequestParam Long id)
+    {
+        NewsPost item = newsPostRepository.findById(id).orElse(null);
+        item.setContent(content);
+        item.setShortContent(shortContent);
+        item.setTitle(title);
+        newsPostRepository.save(item);
+        return "redirect:/details"+id;
+    }
     @PreAuthorize("hasAnyRole('ROLE_MODERATOR')")
     @PostMapping("/deleteCom{id}")
         public String deltecom(@PathVariable Long id,@RequestParam Long post_id) {
@@ -129,7 +147,7 @@ public class MainController {
     @PostMapping("/addPost")
     public String addPost(@RequestParam String title, @RequestParam String content, @RequestParam String shortContent, Model model){
         newsPostRepository.save(new NewsPost(0L,title,shortContent,content,getUserData(),new Date(),new HashSet<>()));
-        return "redirect:/";
+        return "redirect:/feed";
     }
 
     @PostMapping("/sort")
@@ -230,6 +248,13 @@ public class MainController {
         model.addAttribute("moders",moders);
 
         return "users";
+    }
+
+    @GetMapping("/feed")
+    public String feed(ModelMap model) {
+        List<NewsPost> items = newsPostRepository.findAll();
+        model.addAttribute("itemler", items);
+        return "feed";
     }
 
     @PostMapping("/register")

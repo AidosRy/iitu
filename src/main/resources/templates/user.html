@@ -2,8 +2,12 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorator="layouts/main.html">
-
+<div layout:fragment="title"><h2 th:text="#{user}"></h2></div>
 <div layout:fragment="myContent">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-tittle text-center mb-80">
     <div class="row">
         <div class="col-sm-12">
             <form th:action="@{'/updateUser'+${item.id}}" method="post">
@@ -22,6 +26,10 @@
                 <button class="btn btn-success" th:text="#{save}">SAVE</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+            </div>
         </div>
     </div>
 </div>

@@ -3,9 +3,15 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorator="layouts/main.html">
 
-<div layout:fragment="title"><h2 th:text="#{reg}"></h2></div>
-<div layout:fragment="myContent">
+<div layout:fragment="title"><h2 class="text-center mt-150" th:text="#{reg}"></h2></div>
 
+    <!-- Section-tittle -->
+
+<div layout:fragment="myContent">
+    <div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+            <div class="section-tittle text-center mb-80">
     <form th:action="@{'/register'}" method="post" id="search-form">
         <div class="mt-10">
             <input th:placeholder="#{email}" type="email" name="user_email" id="username" required
@@ -26,4 +32,8 @@
     </form>
 </div>
 
+        </div>
+    </div>
+    </div>
+</div>
 </html>

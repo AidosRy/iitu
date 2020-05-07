@@ -2,53 +2,28 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorator="layouts/main.html">
-<style>
-    .shadow {
-        border: 1px solid #888;
-        float: left;
-        padding: 10px;
-        box-shadow: 10px 10px 0 #000,
-        -10px 10px 0 #000,
-        -10px -10px 0 #000,
-        10px -10px 0 #000;
-    }
-    .bottom {
-        float: left;
-        width: 50%;
-    }
-    .dev {
-        box-sizing: border-box;
-    }
-    .clearfix::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
-</style>
 <main>
-<div layout:fragment="slider">
-        <div class="single-slider slider-height d-flex align-items-center">
+    <div layout:fragment="create">
+        <div class="we-create-area create-padding">
             <div class="container">
-                <div class="row d-flex align-items-center">
-                    <div class="col-lg-7 col-md-9 ">
-                        <div>
-                            <h1 data-animation="fadeInLeft" data-delay=".4s">№1 IT-университет<br> Казахстана</h1>
-                            <p data-animation="fadeInLeft" data-delay=".6s">Лучший IT-вуз страны</p><!-- Hero-btn -->
-                            <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s">
-                                <a href="industries.html" class="btn hero-btn">Подробнее</a>
-                            </div>
+                <div class="row d-flex align-items-end">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="we-create-img">
+                            <img src="img/service/we-create.png" alt="">
                         </div>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="hero__img d-none d-lg-block" data-animation="fadeInRight" data-delay="1s">
-                            <img th:src="@{img/hero/hero_right.png}" alt="">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="we-create-cap">
+                            <h3>№1 IT-университет Казахстана</h3>
+                            <p>Международный университет информационных технологий — университет, расположенный в Бостандыкском районе города Алматы, Казахстан. Является одним из ведущих университетов Казахстана в сфере ИТ, был создан в апреле 2009 года по поручению Президента Республики Казахстан.</p><!-- Hero-btn -->
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 <div layout:fragment="wwd">
         <div class="container">
             <!-- Section-tittle -->
@@ -63,7 +38,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-do text-center mb-30">
                         <div class="do-icon">
-                            <span  class="fa fa-flask"></span>
+                            <span  class="fa fa-flask " style="color: black;"></span>
                         </div>
                         <div class="do-caption">
                             <h4>Высокий научно-педагогический потенциал</h4>
@@ -74,7 +49,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-do text-center mb-30">
                         <div class="do-icon">
-                            <span  class="fa fa-university"></span>
+                            <span  class="fa fa-university" style="color: black;"></span>
                         </div>
                         <div class="do-caption">
                             <h4>Обменные программы и стажировки за рубежом</h4>
@@ -85,7 +60,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-do text-center mb-30">
                         <div class="do-icon">
-                            <span  class="fa fa-book"></span>
+                            <span  class="fa fa-book" style="color: black;"></span>
                         </div>
                         <div class="do-caption">
                             <h4>Уникальные образовательные программы</h4>
@@ -100,7 +75,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single-do text-center mb-30">
                     <div class="do-icon">
-                        <span  class="fa fa-briefcase"></span>
+                        <span  class="fa fa-briefcase" style="color: black;"></span>
                     </div>
                     <div class="do-caption">
                         <h4>Производственные практики в лучших IT-компаниях</h4>
@@ -111,7 +86,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single-do text-center mb-30">
                     <div class="do-icon">
-                        <span  class="fa ti-apple"></span>
+                        <span  class="fa ti-apple" style="color: black;"></span>
                     </div>
                     <div class="do-caption">
                         <h4>Партнёры IT-гиганты мира</h4>
@@ -122,7 +97,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single-do text-center mb-30">
                     <div class="do-icon">
-                        <span  class="fa fa-laptop"></span>
+                        <span  class="fa fa-laptop" style="color: black;"></span>
                     </div>
                     <div class="do-caption">
                         <h4>Международные IT-сорвенования</h4>
@@ -137,11 +112,18 @@
     <div class="choose-best choose-padding">
         <div class="container">
             <!-- Section-tittle -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-tittle text-center">
+                        <h2>Статистика</h2>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="single-choose text-center mb-30">
                         <div class="do-icon">
-                            <span class="fa fa-graduation-cap"></span>
+                            <span class="fa fa-graduation-cap" style="color: black;"></span>
                         </div>
                         <div class="do-caption">
                             <h4>4020</h4>
@@ -154,7 +136,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-choose active text-center mb-30">
                         <div class="do-icon">
-                            <span class="fa fa-users"></span>
+                            <span class="fa fa-users" style="color: black;"></span>
                         </div>
                         <div class="do-caption">
                             <h4>8</h4>
@@ -167,7 +149,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-choose text-center mb-30">
                         <div class="do-icon">
-                            <span  class="fa fa-handshake"></span>
+                            <span  class="fa fa-handshake" style="color: black;"></span>
                         </div>
                         <div class="do-caption">
                             <h4>17</h4>
@@ -199,8 +181,7 @@
                             <img src="/img/visit/visit_1.jpg" alt="">
                         </div>
                         <div class="visited-cap">
-                            <h3><a href="#">6B06111</a></h3>
-                            <p>Менеджмент</p>
+                            <h3><a href="#">Менеджмент</a></h3>
                         </div>
                     </div>
                 </div>
@@ -210,8 +191,7 @@
                             <img src="/img/visit/visit_2.jpg" alt="">
                         </div>
                         <div class="visited-cap">
-                            <h3><a href="#">6B06111</a></h3>
-                            <p>Data science</p>
+                            <h3><a href="#">Data <br>science</a></h3>
                         </div>
                     </div>
                 </div>
@@ -221,8 +201,7 @@
                             <img src="/img/visit/visit_3.jpg" alt="">
                         </div>
                         <div class="visited-cap">
-                            <h3><a href="#">6B06111</a></h3>
-                            <p>Финансовая математика</p>
+                            <h3><a href="#">Финансовая<br>математика</a></h3>
                         </div>
                     </div>
                 </div>
@@ -232,8 +211,7 @@
                             <img src="/img/visit/visit_4.jpg" alt="">
                         </div>
                         <div class="visited-cap">
-                            <h3><a href="#">6B06111</a></h3>
-                            <p>Компьютерные науки</p>
+                            <h3><a href="#">Информатика</a></h3>
                         </div>
                     </div>
                 </div>
@@ -267,7 +245,7 @@
                                     <!-- founder -->
                                     <div class="testimonial-founder d-flex align-items-center justify-content-center">
                                         <div class="founder-img">
-                                            <img src="/img/prising/1.png" alt="">
+                                            <img src="/img/comment/comment_2.png" alt="">
                                         </div>
                                         <div class="founder-text">
                                             <span>Дархан Асфендиаров</span>
@@ -276,6 +254,25 @@
                                     </div>
                                 </div>
                             </div><!-- Single Testimonial -->
+                            <div class="single-testimonial text-center">
+                                <div class="testimonial-caption ">
+                                    <div class="testimonial-top-cap">
+                                        <p>IT - лучшее что случалось со мной в этой жизни. Здесь вы сможете как и провести хорошую и насыщенную студенческую жизнь, так же и
+                                            окунуться во взрослую жизнь, обзаведшись обширным кругом связей.
+                                        </p>
+                                    </div>
+                                    <!-- founder -->
+                                    <div class="testimonial-founder d-flex align-items-center justify-content-center">
+                                        <div class="founder-img">
+                                            <img src="/img/comment/comment_1.png" alt="">
+                                        </div>
+                                        <div class="founder-text">
+                                            <span>Олжас Бермаганбетов</span>
+                                            <p>Motion-designer Kazakhstan Paramount Pictures</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="single-testimonial text-center">
                                 <div class="testimonial-caption ">
                                     <div class="testimonial-top-cap">
@@ -307,7 +304,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-6 col-md-8 pr-0">
                     <div class="section-tittle text-center">
-                        <h2>Tips and Tricks From Our Exparts</h2>
+                        <h2>Новости</h2>
                     </div>
                 </div>
             </div>
@@ -318,9 +315,8 @@
                             <img src="img/tips/tips_1.jpg" alt="">
                         </div>
                         <div class="tips-caption">
-                            <h4><a href="#">Регистрация HACKDAY 2020</a></h4>
-                            <span>Continue Reading</span>
-                            <p>March 3, 2020</p>
+                            <h4><a th:href="@{'/details21'}">Регистрация HACKDAY <i class="ti-arrow-circle-right"></i></a></h4>
+                            <p>May 7, 2020 </p>
                         </div>
                     </div>
                 </div>
@@ -330,9 +326,8 @@
                             <img src="/img/tips/tips_2.jpg" alt="">
                         </div>
                         <div class="tips-caption">
-                            <h4><a href="#">Twice profit than before you ever got</a></h4>
-                            <span>Continue Reading</span>
-                            <p>March 3, 2020</p>
+                            <h4><a th:href="@{'/details22'}">Онлайн лекция <i class="ti-arrow-circle-right"></i></a></h4>
+                            <p>May 7, 2020</p>
                         </div>
                     </div>
                 </div>
@@ -342,9 +337,8 @@
                             <img src="/img/tips/tips_3.jpg" alt="">
                         </div>
                         <div class="tips-caption">
-                            <h4><a href="#">Twice profit than before you ever got</a></h4>
-                            <span>Continue Reading</span>
-                            <p>March 3, 2020</p>
+                            <h4><a th:href="@{'/details23'}">Бесплатные вебинары <i class="ti-arrow-circle-right"></i></a></h4>
+                            <p>May 7, 2020</p>
                         </div>
                     </div>
                 </div>
@@ -359,13 +353,10 @@
                 <div class="row d-flex align-items-center">
                     <div class="col-xl-7 col-lg-9 col-md-12">
                         <div class="wantToWork-caption">
-                            <h2>Есть какие-то вопросы?</h2>
-                            <p>Обращайтесь в наш кол-центр по телефону +7 (771) 701 44 44 или же напишите нам письмо</p></div>
-                    </div>
-                    <div class="col-xl-5 col-lg-3 col-md-12">
-                        <div class="wantToWork-btn f-right">
-                            <a href="#" class="btn btn-ans">Написать письмо</a>
-                        </div>
+                            <h2>Есть какие-либо вопросы?</h2>
+                            <p>Обращайтесь в наш кол-центр по телефону +7 (771) 701 44 44 или же напишите нам письмо на почту
+                                info@iitu.kz
+                            </p></div>
                     </div>
                 </div>
             </div>
@@ -374,108 +365,4 @@
 </div>
 </main>
 
-<div layout:fragment="title" data-animation="fadeInUp" data-delay=".4s">
-
-    <h2 th:text="#{posts}">News Feed</h2>
-    <div sec:authorize="hasAnyRole('ROLE_MODERATOR')" class="pb-100">
-        <h4 th:text="#{add_post}"></h4>
-        <form action="/addPost" method="post" class="form">
-            <div class="form-group">
-                <input type="text" name="title" onfocus="this.placeholder = ''"
-                       th:placeholder="#{title}" required class="single-input inp">
-            </div>
-            <div class="form-group">
-                <input type="text" name="shortContent" class="single-input inp" th:placeholder="#{short_content}" required>
-            </div>
-            <div class="form-group">
-                <input type="text" name="content" class="single-input inp" th:placeholder="#{content}" required>
-            </div>
-            <button type="submit" class="genric-btn primary" th:text="#{add}"></button>
-        </form>
-    </div>
-</div>
-
-<div layout:fragment="myContent">
-<!--    <label for="order">Order by:</label>-->
-<!--    <select id="order">-->
-<!--        <option value="date">date</option>-->
-<!--        <option value="likes">likes</option>-->
-<!--    </select>-->
-<!--    <form th:action="@{/sort}" method="post" th:object="${items}">-->
-
-<!--        <button class="btn btn-dark">Sort by Date</button>-->
-<!--    </form>-->
-<!--    <ul th:each="item : ${items}">-->
-<!--        <div class="shadow">-->
-<!--            <a th:href="@{'/details'+${item.id}}">-->
-<!--                <article class="blog_item">-->
-<!--                    <div class="blog_details" >-->
-<!--                        <a class="d-inline-block" th:href="@{'/details'+${item.id}}">-->
-<!--                            <h2 th:text="${item.title}"></h2>-->
-<!--                        </a>-->
-<!--                        <p th:text="${item.shortContent}"></p>-->
-<!--                        <div class="blog-info-link">-->
-<!--                            <div>-->
-<!--                                <li><a href="#" th:text="${item.author.fullName}"><i class="fa fa-user"></i></a></li>-->
-<!--                                <li><a href="#" th:text="${#sets.size(item.likes)}"><i class="fa fa-comments"></i></a> <a-->
-<!--                                        th:text="#{likes}"></a></li>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </article>-->
-<!--            </a>-->
-<!--        </div>-->
-<!--    </ul>-->
-    <form th:action="@{/search}" method="post" th:object="${search}">
-        <label for="search">Search:</label>
-        <input name="search" id="search">
-        <div th:if="${not #sets.isEmpty(search)}">
-            <h4>Search Results</h4>
-            <ul th:each="item : ${search}">
-                <div class="shadow">
-                    <a th:href="@{'/details'+${item.id}}">
-                        <article class="blog_item">
-
-
-                            <div class="blog_details" >
-                                <a class="d-inline-block" th:href="@{'/details'+${item.id}}">
-                                    <h2 th:text="${item.title}"></h2>
-                                </a>
-                                <p th:text="${item.shortContent}"></p>
-                                <div class="blog-info-link">
-                                    <div>
-                                        <li><a href="#" th:text="${item.author.fullName}"><i class="fa fa-user"></i></a></li>
-                                        <li><a href="#" th:text="${#sets.size(item.likes)}"><i class="fa fa-comments"></i></a> <a
-                                                th:text="#{likes}"></a></li>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </a>
-                </div>
-            </ul>
-        </div>
-    </form>
-    <ul th:each="item : ${itemler}">
-        <div class="shadow">
-            <a th:href="@{'/details'+${item.id}}">
-                <article class="blog_item">
-                    <div class="blog_details" >
-                        <a class="d-inline-block" th:href="@{'/details'+${item.id}}">
-                            <h2 th:text="${item.title}"></h2>
-                        </a>
-                        <p th:text="${item.shortContent}"></p>
-                        <div class="blog-info-link">
-                            <div>
-                            <li><a href="#" th:text="${item.author.fullName}"><i class="fa fa-user"></i></a></li>
-                            <li><a href="#" th:text="${#sets.size(item.likes)}"><i class="fa fa-comments"></i></a> <a
-                                    th:text="#{likes}"></a></li>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </a>
-        </div>
-    </ul>
-</div>
 </html>

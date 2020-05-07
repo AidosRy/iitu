@@ -29,15 +29,17 @@
     <h2 th:text="${item.title}"></h2>
 </div>
 <div layout:fragment="myContent">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-tittle text-center mb-80">
+
     <div class="row">
         <div class="col-sm-12">
             <div>
                 <a th:text="${item.content}"></a>
             </div>
-            <div>
-                Posted by <a th:text="${item.author.fullName}"></a> at <a
-                    th:text="${#dates.format(item.postDate, 'yyyy-MM-dd HH:mm:ss')}"></a>
-            </div>
+
             <div>
                 <a style="color: red" th:text="${#sets.size(item.likes)}"></a>
                 <form style="display: inline-block" th:if="${#sets.contains(item.likes, user)}"
@@ -49,26 +51,21 @@
                       th:action="@{'/likePost'+${item.id}}" method="post">
                     <button id="heart"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
                 </form>
-            </div>
-            <div class="form-inline">
-                <form th:action="@{'/deletePost'+${item.id}}" sec:authorize="hasRole('ROLE_MODERATOR')" method="post">
+                <form th:action="@{'/deletePost'+${item.id}}" sec:authorize="hasRole('ROLE_ADMIN')" method="post">
                     <button class="genric-btn danger">DELETE</button>
                 </form>
-                <form th:action="@{'/deletePost'+${item.id}}" sec:authorize="hasRole('ROLE_MODERATOR')" method="post">
+                <form th:action="@{'/edit'+${item.id}}" sec:authorize="hasRole('ROLE_ADMIN')" method="get">
                     <button class="genric-btn warning">EDIT</button>
                 </form>
             </div>
-            <hr>
-            <p th:text="#{comments}">COMMENTS</p>
-            <hr>
+            <h2 class="mt-50" th:text="#{comments}">COMMENTS</h2>
             <form th:action="@{'/addComment'+${item.id}}" method="post" class="form" sec:authorize="isAuthenticated()">
                 <div class="form-group">
                     <input type="text" name="comment" class="form-control" required>
                 </div>
                 <button class="genric-btn primary" th:text="#{add}"></button>
             </form>
-            <hr>
-            <ul th:each="com : ${comments}">
+            <ul th:each="com : ${comments}" class="mt-50">
                 <li>
                     <div>
                         <a th:text="${com.comment}"></a>
@@ -88,14 +85,17 @@
                         <button id="heart1"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
                         <input type="hidden" name="post_id" th:value="${item.id}">
                     </form>
-                    <form sec:authorize="hasAnyRole('ROLE_MODERATOR')" method="post"
+                    <form sec:authorize="hasAnyRole('ROLE_ADMIN')" method="post"
                           th:action="@{'/deleteCom'+${com.id}}">
                         <button class="genric-btn danger">DELETE</button>
                         <input type="hidden" th:value="${item.id}" name="post_id">
                     </form>
                 </li>
-                <hr>
             </ul>
+        </div>
+    </div>
+</div>
+            </div>
         </div>
     </div>
 </div>
