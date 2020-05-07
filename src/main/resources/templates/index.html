@@ -25,7 +25,357 @@
         display: table;
     }
 </style>
+<main>
+<div layout:fragment="slider">
+        <div class="single-slider slider-height d-flex align-items-center">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-7 col-md-9 ">
+                        <div>
+                            <h1 data-animation="fadeInLeft" data-delay=".4s">№1 IT-университет<br> Казахстана</h1>
+                            <p data-animation="fadeInLeft" data-delay=".6s">Лучший IT-вуз страны</p><!-- Hero-btn -->
+                            <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s">
+                                <a href="industries.html" class="btn hero-btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="hero__img d-none d-lg-block" data-animation="fadeInRight" data-delay="1s">
+                            <img th:src="@{img/hero/hero_right.png}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div layout:fragment="wwd">
+        <div class="container">
+            <!-- Section-tittle -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-tittle text-center">
+                        <h2>Наши преимущества</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-do text-center mb-30">
+                        <div class="do-icon">
+                            <span  class="fa fa-flask"></span>
+                        </div>
+                        <div class="do-caption">
+                            <h4>Высокий научно-педагогический потенциал</h4>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-do text-center mb-30">
+                        <div class="do-icon">
+                            <span  class="fa fa-university"></span>
+                        </div>
+                        <div class="do-caption">
+                            <h4>Обменные программы и стажировки за рубежом</h4>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-do text-center mb-30">
+                        <div class="do-icon">
+                            <span  class="fa fa-book"></span>
+                        </div>
+                        <div class="do-caption">
+                            <h4>Уникальные образовательные программы</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="container">
+        <!-- Section-tittle -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-do text-center mb-30">
+                    <div class="do-icon">
+                        <span  class="fa fa-briefcase"></span>
+                    </div>
+                    <div class="do-caption">
+                        <h4>Производственные практики в лучших IT-компаниях</h4>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-do text-center mb-30">
+                    <div class="do-icon">
+                        <span  class="fa ti-apple"></span>
+                    </div>
+                    <div class="do-caption">
+                        <h4>Партнёры IT-гиганты мира</h4>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-do text-center mb-30">
+                    <div class="do-icon">
+                        <span  class="fa fa-laptop"></span>
+                    </div>
+                    <div class="do-caption">
+                        <h4>Международные IT-сорвенования</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div layout:fragment="generate">
+    <div class="choose-best choose-padding">
+        <div class="container">
+            <!-- Section-tittle -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-choose text-center mb-30">
+                        <div class="do-icon">
+                            <span class="fa fa-graduation-cap"></span>
+                        </div>
+                        <div class="do-caption">
+                            <h4>4020</h4>
+                            <ul>
+                                <li>СТУДЕНТОВ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-choose active text-center mb-30">
+                        <div class="do-icon">
+                            <span class="fa fa-users"></span>
+                        </div>
+                        <div class="do-caption">
+                            <h4>8</h4>
+                            <ul>
+                                <li>КАФЕДР</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-choose text-center mb-30">
+                        <div class="do-icon">
+                            <span  class="fa fa-handshake"></span>
+                        </div>
+                        <div class="do-caption">
+                            <h4>17</h4>
+                            <ul>
+                                <li>СТРАН ПАРТНЁРОВ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="visit-area fix visite-padding">
+        <div class="container">
+            <!-- Section-tittle -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 pr-0">
+                    <div class="section-tittle text-center">
+                        <h2>Образовательные программы</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0">
+            <div class="row ">
+                <div class="col-lg-3 col-md-4">
+                    <div class="single-visited mb-30">
+                        <div class="visited-img">
+                            <img src="/img/visit/visit_1.jpg" alt="">
+                        </div>
+                        <div class="visited-cap">
+                            <h3><a href="#">6B06111</a></h3>
+                            <p>Менеджмент</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="single-visited mb-30">
+                        <div class="visited-img">
+                            <img src="/img/visit/visit_2.jpg" alt="">
+                        </div>
+                        <div class="visited-cap">
+                            <h3><a href="#">6B06111</a></h3>
+                            <p>Data science</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="single-visited mb-30">
+                        <div class="visited-img">
+                            <img src="/img/visit/visit_3.jpg" alt="">
+                        </div>
+                        <div class="visited-cap">
+                            <h3><a href="#">6B06111</a></h3>
+                            <p>Финансовая математика</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="single-visited mb-30">
+                        <div class="visited-img">
+                            <img src="/img/visit/visit_4.jpg" alt="">
+                        </div>
+                        <div class="visited-cap">
+                            <h3><a href="#">6B06111</a></h3>
+                            <p>Компьютерные науки</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Visit Stuffs Start -->
+    <!-- Testimonial Start -->
+    <div class="testimonial-area">
+        <div class="container">
+            <div class="testimonial-main">
+                <!-- Section-tittle -->
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-5  col-md-8 pr-0">
+                        <div class="section-tittle text-center">
+                            <h2>Наши выпускники</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-10 col-md-9">
+                        <div class="h1-testimonial-active">
+                            <!-- Single Testimonial -->
+                            <div class="single-testimonial text-center">
+                                <div class="testimonial-caption ">
+                                    <div class="testimonial-top-cap">
+                                        <p>IT - лучшее что случалось со мной в этой жизни. Здесь вы сможете как и провести хорошую и насыщенную студенческую жизнь, так же и
+                                        окунуться во взрослую жизнь, обзаведшись обширным кругом связей.
+                                        </p>
+                                    </div>
+                                    <!-- founder -->
+                                    <div class="testimonial-founder d-flex align-items-center justify-content-center">
+                                        <div class="founder-img">
+                                            <img src="/img/prising/1.png" alt="">
+                                        </div>
+                                        <div class="founder-text">
+                                            <span>Дархан Асфендиаров</span>
+                                            <p>Choco-family Team-Lead</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Single Testimonial -->
+                            <div class="single-testimonial text-center">
+                                <div class="testimonial-caption ">
+                                    <div class="testimonial-top-cap">
+                                        <p>IT - лучшее что случалось со мной в этой жизни. Здесь вы сможете как и провести хорошую и насыщенную студенческую жизнь, так же и
+                                            окунуться во взрослую жизнь, обзаведшись обширным кругом связей.</p></div>
+                                    <!-- founder -->
+                                    <div class="testimonial-founder d-flex align-items-center justify-content-center">
+                                        <div class="founder-img">
+                                            <img src="/img/testmonial/testimonial.png" alt="">
+                                        </div>
+                                        <div class="founder-text">
+                                            <span>Аружан Спабекова</span>
+                                            <p>Kolesa-group UIX designer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+    <!-- Tips Triks Start -->
+    <div class="tips-triks-area tips-padding">
+        <div class="container">
+            <!-- Section-tittle -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 col-md-8 pr-0">
+                    <div class="section-tittle text-center">
+                        <h2>Tips and Tricks From Our Exparts</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-tips mb-50">
+                        <div class="tips-img">
+                            <img src="img/tips/tips_1.jpg" alt="">
+                        </div>
+                        <div class="tips-caption">
+                            <h4><a href="#">Регистрация HACKDAY 2020</a></h4>
+                            <span>Continue Reading</span>
+                            <p>March 3, 2020</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-tips mb-50">
+                        <div class="tips-img">
+                            <img src="/img/tips/tips_2.jpg" alt="">
+                        </div>
+                        <div class="tips-caption">
+                            <h4><a href="#">Twice profit than before you ever got</a></h4>
+                            <span>Continue Reading</span>
+                            <p>March 3, 2020</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-tips mb-50">
+                        <div class="tips-img">
+                            <img src="/img/tips/tips_3.jpg" alt="">
+                        </div>
+                        <div class="tips-caption">
+                            <h4><a href="#">Twice profit than before you ever got</a></h4>
+                            <span>Continue Reading</span>
+                            <p>March 3, 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tips Triks End -->
+    <!-- have-project Start-->
+    <div class="have-project">
+        <div class="container">
+            <div class="haveAproject"  >
+                <div class="row d-flex align-items-center">
+                    <div class="col-xl-7 col-lg-9 col-md-12">
+                        <div class="wantToWork-caption">
+                            <h2>Есть какие-то вопросы?</h2>
+                            <p>Обращайтесь в наш кол-центр по телефону +7 (771) 701 44 44 или же напишите нам письмо</p></div>
+                    </div>
+                    <div class="col-xl-5 col-lg-3 col-md-12">
+                        <div class="wantToWork-btn f-right">
+                            <a href="#" class="btn btn-ans">Написать письмо</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
 <div layout:fragment="title" data-animation="fadeInUp" data-delay=".4s">
+
     <h2 th:text="#{posts}">News Feed</h2>
     <div sec:authorize="hasAnyRole('ROLE_MODERATOR')" class="pb-100">
         <h4 th:text="#{add_post}"></h4>
